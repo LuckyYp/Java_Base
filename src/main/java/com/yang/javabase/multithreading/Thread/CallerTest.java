@@ -8,6 +8,7 @@ public class CallerTest {
 
     public static class CallerTask implements Callable<String>{
         public String call() throws Exception {
+            // 执行代码体
             return "Hello";
         }
     }
