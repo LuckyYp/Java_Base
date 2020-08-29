@@ -23,10 +23,14 @@ public class CollectorReduce {
                 new Dish("prawns", false, 300, Dish.Type.FISH),
                 new Dish("salmon", false, 450, Dish.Type.FISH));
 
+        // 取总
         long count = menu.stream().filter(d -> d.isVegetarian()).count();
-
         Long collect = menu.stream().filter(d -> d.isVegetarian()).collect(Collectors.counting());
 
+        System.out.println("count = " + count);
+        System.out.println("collect = " + collect);
+
+        // 取属性最大值对象
 //        Optional<Integer> maxCalories = menu.stream().map(Dish::getCalories).reduce(Integer::max);
         Optional<Dish> maxCalories = menu.stream().reduce((d1, d2) -> d1.getCalories() > d2.getCalories() ? d1 : d2);
         maxCalories.ifPresent(System.out::println);
@@ -36,7 +40,7 @@ public class CollectorReduce {
 
 
         Integer collect1 = menu.stream().collect(Collectors.collectingAndThen(toList(), t -> t.size()));
-
+        System.out.println("collect1 =" + collect1);
 
         Map<Dish.Type, List<Dish>> collect2 = menu.stream().collect(Collectors.groupingBy(Dish::getType));
 

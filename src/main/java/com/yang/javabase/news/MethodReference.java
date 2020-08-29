@@ -9,7 +9,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 /**
- * Created by wangwenjun on 2016/10/16.
+ * java8中双冒号的简写
  */
 public class MethodReference {
 
@@ -73,6 +73,9 @@ public class MethodReference {
         List<Apple> list2 = Arrays.asList(new Apple("abc", 123), new Apple("Green", 110), new Apple("red", 123));
 
         System.out.println(list2);
+
+        Function<Apple, String> getColor = Apple::getColor;
+
         list2.sort(Comparator.comparing(Apple::getColor));
         System.out.println(list2);
     }

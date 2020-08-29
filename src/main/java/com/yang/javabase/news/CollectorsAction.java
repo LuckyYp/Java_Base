@@ -34,24 +34,34 @@ public class CollectorsAction {
         testSummarizingInt();
     }
 
+    /**
+     * 求平均值（double）
+     */
     private static void testAveragingDouble() {
         System.out.println("testAveragingDouble");
         Optional.ofNullable(menu.stream().collect(Collectors.averagingDouble(Dish::getCalories)))
                 .ifPresent(System.out::println);
     }
-
+    /**
+     * 求平均值（int）
+     */
     private static void testAveragingInt() {
         System.out.println("testAveragingInt");
         Optional.ofNullable(menu.stream().collect(Collectors.averagingInt(Dish::getCalories)))
                 .ifPresent(System.out::println);
     }
-
+    /**
+     * 求平均值（Long）
+     */
     private static void testAveragingLong() {
         System.out.println("testAveragingLong");
         Optional.ofNullable(menu.stream().collect(Collectors.averagingLong(Dish::getCalories)))
                 .ifPresent(System.out::println);
     }
 
+    /**
+     * 求平均值,并对结果进行操作
+     */
     private static void testCollectingAndThen() {
         System.out.println("testCollectingAndThen");
         Optional.ofNullable(menu.stream().collect(Collectors.collectingAndThen(Collectors.averagingInt(Dish::getCalories), a -> "The Average Calories is->" + a)))
@@ -63,23 +73,35 @@ public class CollectorsAction {
         System.out.println(list);*/
     }
 
+    /**
+     * 求对象的总个数
+     */
     private static void testCounting() {
         System.out.println("testCounting");
         Optional.of(menu.stream().collect(Collectors.counting())).ifPresent(System.out::println);
     }
 
+    /**
+     * 对集合数据进行分组(根据对象中的某一个属性)
+     */
     private static void testGroupingByFunction() {
         System.out.println("testGroupingByFunction");
         Optional.of(menu.stream().collect(Collectors.groupingBy(Dish::getType)))
                 .ifPresent(System.out::println);
     }
 
+    /**
+     * 对集合根据对象中某个属性进行分组，并计算每一个组的平均值
+     */
     private static void testGroupingByFunctionAndCollector() {
         System.out.println("testGroupingByFunctionAndCollector");
         Optional.of(menu.stream().collect(Collectors.groupingBy(Dish::getType, Collectors.averagingInt(Dish::getCalories))))
                 .ifPresent(System.out::println);
     }
 
+    /**
+     * 对集合根据对象中某个属性进行去重分组，并计算每一个组的平均值
+     */
     private static void testGroupingByFunctionAndSupplierAndCollector() {
         System.out.println("testGroupingByFunctionAndSupplierAndCollector");
         Map<Dish.Type, Double> map = menu.stream().collect(Collectors.groupingBy(Dish::getType, TreeMap::new, Collectors.averagingInt(Dish::getCalories)));
@@ -88,6 +110,9 @@ public class CollectorsAction {
         Optional.of(map).ifPresent(System.out::println);
     }
 
+    /**
+     * 求集合中根据某个字段的的属性值，求总个数，总值，最小值，平均值，最大值
+     */
     private static void testSummarizingInt() {
         System.out.println("testSummarizingInt");
         IntSummaryStatistics result = menu.stream().collect(Collectors.summarizingInt(Dish::getCalories));
