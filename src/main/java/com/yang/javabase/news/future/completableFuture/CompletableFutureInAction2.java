@@ -1,4 +1,4 @@
-package com.yang.javabase.news;
+package com.yang.javabase.news.future.completableFuture;
 
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
@@ -16,8 +16,9 @@ public class CompletableFutureInAction2 {
     public static void main(String[] args)
             throws InterruptedException {
         AtomicBoolean finished = new AtomicBoolean(false);
-        ExecutorService executor = Executors.newFixedThreadPool(2, r -> {
+        ExecutorService executor = Executors.newFixedThreadPool(3, r -> {
             Thread t = new Thread(r);
+            // 使线程池的现场不是守护线程,默认是守护线程
             t.setDaemon(false);
             return t;
         });

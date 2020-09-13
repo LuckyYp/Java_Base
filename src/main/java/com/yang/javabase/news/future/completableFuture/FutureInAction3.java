@@ -1,13 +1,12 @@
-package com.yang.javabase.news;
+package com.yang.javabase.news.future.completableFuture;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2016/11/7 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+/**
+ * 模拟实现CompletableFuture
+ * 实现一个异步基于事件回调的Future程序
+ */
 public class FutureInAction3 {
 
     public static void main(String[] args) {
@@ -35,6 +34,8 @@ public class FutureInAction3 {
                 cause.printStackTrace();
             }
         });
+
+        // 阻塞的是子线程,而不是主线程,不影响主线程
         System.out.println(".........");
         System.out.println(future.get());
         System.out.println(future.get());

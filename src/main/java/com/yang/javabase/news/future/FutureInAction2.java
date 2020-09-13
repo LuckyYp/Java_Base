@@ -1,12 +1,10 @@
-package com.yang.javabase.news;
+package com.yang.javabase.news.future;
 
 import java.util.concurrent.*;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2016/11/7 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+/**
+ * 使用JDK的Future
+ */
 public class FutureInAction2 {
 
     public static void main(String[] args)

@@ -1,17 +1,15 @@
-package com.yang.javabase.news;
+package com.yang.javabase.news.future;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2016/11/7 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+/**
+ * 自己实现的Future
+ */
 public class FutureInAction {
     public static void main(String[] args) throws InterruptedException {
 
-     /*   Future<String> future = invoke(() -> {
+     Future<String> future = invoke(() -> {
             try {
                 Thread.sleep(10000);
                 return "I am finished.";
@@ -27,9 +25,9 @@ public class FutureInAction {
         while (!future.isDone()) {
             Thread.sleep(10);
         }
-        System.out.println(future.get());*/
+        System.out.println(future.get());
 
-        String value = block(() -> {
+        /*String value = block(() -> {
             try {
                 Thread.sleep(10000);
                 return "I am finished.";
@@ -37,7 +35,7 @@ public class FutureInAction {
                 return "Error";
             }
         });
-        System.out.println(value);
+        System.out.println(value);*/
     }
 
     private static <T> T block(Callable<T> callable) {

@@ -1,4 +1,4 @@
-package com.yang.javabase.news;
+package com.yang.javabase.news.future.completableFuture;
 
 import java.util.Optional;
 import java.util.Random;
